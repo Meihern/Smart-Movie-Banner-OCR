@@ -8,11 +8,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Color(0xFF0E0E12),
         appBar: AppBar(
           title: Text("Smart Movie Banner"),
           backgroundColor: Colors.blue,
         ),
         body: Center(
+
           child: Container(
             child: Text("Application Smart Movie Banner")
           )
