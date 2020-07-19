@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "609354217082",
+    "firebase_url": "https://smart-movie-banner.firebaseio.com",
+    "project_id": "smart-movie-banner",
+    "storage_bucket": "smart-movie-banner.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:609354217082:android:bcddbaf46d744afffe6dc3",
+        "android_client_info": {
+          "package_name": "com.example.smart_movie_banner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "609354217082-7r30ntdb5iorbk9a8fcocic4cv2ddda7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEFytK4AcZ-F23P8Z-JYpSfvsJxkllu_0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "609354217082-7r30ntdb5iorbk9a8fcocic4cv2ddda7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
