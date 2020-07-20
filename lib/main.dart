@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smart_movie_banner/screens/home.dart';
+import 'package:smart_movie_banner/screens/infor_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -7,19 +10,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Color(0xFF0E0E12),
-        appBar: AppBar(
-          title: Text("Smart Movie Banner"),
-          backgroundColor: Colors.blue,
-        ),
-        body: Center(
+      home:
+         Column(
+           children: <Widget>[
+             Home(),
 
-          child: Container(
-            child: Text("Application Smart Movie Banner")
-          )
-        ),
-      )
+           ],
+         ),
+
+
     );
   }
 }
