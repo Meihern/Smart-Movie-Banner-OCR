@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smart_movie_banner/widgets/information.dart';
+import 'package:smart_movie_banner/widgets/movie_information.dart';
 
 class InfosScreen extends StatelessWidget {
   @override
@@ -9,16 +9,10 @@ class InfosScreen extends StatelessWidget {
       body: SafeArea(
         child:ListView(
           children: <Widget>[
-            Information(),
-
-
-
-
-
+            MovieInformation(),
           ],
         ),
       ),
-
     );
   }
 }

@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:smart_movie_banner/widgets/infos_card.dart';
+import 'package:smart_movie_banner/models/movie_model.dart';
+import 'package:smart_movie_banner/widgets/movie_info_card.dart';
 
-class Information extends StatelessWidget {
+class MovieInformation extends StatelessWidget {
+
+  final MovieModel movieModel;
+
+  const MovieInformation({Key key, @required this.movieModel}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -33,7 +39,7 @@ class Information extends StatelessWidget {
               style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600,fontSize: 30),
               ),
           ),
-          InfosCard(),
+          MovieInfoCard(movie: movieModel,),
 
         ],
       ),

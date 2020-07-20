@@ -1,30 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:smart_movie_banner/models/movie_model.dart';
 
-class InfosCard extends StatelessWidget {
+class MovieInfoCard extends StatelessWidget {
+
+  final MovieModel movie;
+
+  const MovieInfoCard({Key key,@required this.movie}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-
         child:Container(
-
-
-
           margin:EdgeInsets.only(left: 5.0,right: 5.0,),
            height: 500,
 
            child:Stack(
               children:<Widget>[
              Positioned(
-              child:Container(
+              child:
+              Container(
                  //height:double.infinity,
                   width: 350,
                    decoration: BoxDecoration(
                      borderRadius: BorderRadius.circular(25),
                     color: Colors.white.withOpacity(.12),
-    ),
-
-    ),
-
+          ),
+        ),
     ),
     Positioned(
     left:15,
