@@ -9,7 +9,7 @@ part 'main_state.dart';
 
 class MainBloc extends Bloc<MainEvent, MainState> {
   @override
-  MainState get initialState => MainAppLoadedState();
+  MainState get initialState => MainAppDefaultLoadedState();
 
   @override
   Stream<MainState> mapEventToState(MainEvent event) async* {

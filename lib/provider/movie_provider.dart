@@ -1,8 +1,12 @@
+import 'dart:convert';
 import 'dart:io';
+import 'package:http/http.dart' as http;
 
 import 'package:firebase_ml_vision/firebase_ml_vision.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:smart_movie_banner/configuration.dart';
+import 'package:smart_movie_banner/models/movie_model.dart';
 
 class MovieProvider{
 
@@ -23,7 +27,25 @@ class MovieProvider{
     return visionText;
   }
 
-  Future<dynamic> getMovieDetails(String movieName) async{
+  Future<int> getMovieId(String keyword) async{
+    String searchUrl = BASE_URL+'/search/movie?api_key='+API_KEY+'&&language='+LANGUAGE+'&query='+keyword+'&page=1';
+    http.get(
+        Uri.encodeFull(searchUrl), headers: {'accept': 'application/json'}
+    ).then((result){
+      return json.decode(result.body)['results'][0]['id'];
+    }).catchError((err){
+      throw err;
+    });
+  }
+
+  Future<MovieModel> getMovieDetails(int movieId) async{
+    String movieDetailsUrl = '$BASE_URL/movie/$movieId?api_key=$API_KEY&&language=$LANGUAGE';
+    http.get(Uri.encodeFull(movieDetailsUrl), headers: {'accept': 'application/json'})
+    .then((result){
+      return MovieModel.fromJson(json.decode(result.body));
+    }).catchError((err){
+      throw err;
+    });
   }
 
 

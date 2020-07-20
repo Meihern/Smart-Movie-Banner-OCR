@@ -10,7 +10,7 @@ class MainAppLoadingState extends MainState{
 
 }
 
-class MainAppLoadedState extends MainState {
+class MainAppDefaultLoadedState extends MainState {
   @override
   // TODO: implement props
   List<Object> get props => null;
