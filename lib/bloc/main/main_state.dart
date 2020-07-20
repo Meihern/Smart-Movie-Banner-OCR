@@ -27,3 +27,15 @@ class MainAppMovieDetailState extends MainState{
   List<Object> get props => [movie];
 
 }
+
+class MainAppErrorState extends MainState{
+
+  final String error;
+
+  MainAppErrorState({@required this.error});
+
+  @override
+  // TODO: implement props
+  List<Object> get props => [error];
+
+}
