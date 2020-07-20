@@ -7,13 +7,7 @@ class MovieModel{
   double popularity;
   List<String> genres;
 
-  MovieModel(
-      {this.tile,
-      this.overview,
-      this.posterImagePath,
-      this.releaseDate,
-      this.runtime,
-      this.popularity});
+  MovieModel({this.tile, this.overview, this.posterImagePath, this.releaseDate, this.runtime, this.popularity});
 
   MovieModel.fromJson(Map<String, dynamic> json){
    List<dynamic> jsonGenres = json['genres'];

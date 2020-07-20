@@ -16,3 +16,14 @@ class MainAppDefaultLoadedState extends MainState {
   List<Object> get props => null;
 }
 
+class MainAppMovieDetailState extends MainState{
+
+  final MovieModel movie;
+
+  MainAppMovieDetailState({@required this.movie}) : assert(movie !=null);
+
+  @override
+  // TODO: implement props
+  List<Object> get props => [movie];
+
+}

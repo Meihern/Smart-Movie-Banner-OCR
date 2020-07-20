@@ -10,7 +10,6 @@ import 'package:smart_movie_banner/models/movie_model.dart';
 
 class MovieProvider{
 
-
   Future<File> pickAndPrepareImage(String source) async{
     var file;
     ImagePicker imagePicker = new ImagePicker();
@@ -27,6 +26,7 @@ class MovieProvider{
     return visionText;
   }
 
+  // ignore: missing_return
   Future<int> getMovieId(String keyword) async{
     String searchUrl = BASE_URL+'/search/movie?api_key='+API_KEY+'&&language='+LANGUAGE+'&query='+keyword+'&page=1';
     http.get(
@@ -38,6 +38,7 @@ class MovieProvider{
     });
   }
 
+  // ignore: missing_return
   Future<MovieModel> getMovieDetails(int movieId) async{
     String movieDetailsUrl = '$BASE_URL/movie/$movieId?api_key=$API_KEY&&language=$LANGUAGE';
     http.get(Uri.encodeFull(movieDetailsUrl), headers: {'accept': 'application/json'})
