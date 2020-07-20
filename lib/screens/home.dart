@@ -13,16 +13,9 @@ class Home extends StatelessWidget {
             Container(
               child:Camera(),
             ),
-
-
-
-
-
-
           ],
         ),
       ),
-
     );
   }
 }
