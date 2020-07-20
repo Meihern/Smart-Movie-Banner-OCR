@@ -39,7 +39,7 @@ class MovieInfoCard extends StatelessWidget {
         text: TextSpan(
             children: [
               TextSpan(
-                text: "Titre :",
+                text: "Title :"'${movie.tile}',
                 style:
                 Theme
                     .of(context)
@@ -49,31 +49,31 @@ class MovieInfoCard extends StatelessWidget {
               ),
 
               TextSpan(
-                text: "\nGenres : ",
+                text: "\nGenres : "'${movie.genres}',
                 style: TextStyle(
                     color: Colors.white.withOpacity(.4),
                     fontWeight: FontWeight.w400,fontSize: 20
                 ),),
               TextSpan(
-                text: "\nDate de sortie : ",
+                text: "\nDate de sortie :"'${movie.releaseDate.toIso8601String()}',
                 style: TextStyle(
                     color: Colors.white.withOpacity(.4),
                     fontWeight: FontWeight.w400,fontSize: 20
                 ),),
               TextSpan(
-                text: "\nOverview : ",
+                text: "\nOverview : "'${movie.overview}',
                 style: TextStyle(
                     color: Colors.white.withOpacity(.4),
                     fontWeight: FontWeight.w400,fontSize: 20
                 ),),
               TextSpan(
-                text: "\nPopularity : ",
+                text: "\nPopularity : "'${movie.popularity}',
                 style: TextStyle(
                     color: Colors.white.withOpacity(.4),
                     fontWeight: FontWeight.w400,fontSize: 20
                 ),),
               TextSpan(
-                text: "\nRuntime : ",
+                text: "\nRuntime : "'${movie.runtime}',
                 style: TextStyle(
                     color: Colors.white.withOpacity(.4),
                     fontWeight: FontWeight.w400,fontSize: 20
