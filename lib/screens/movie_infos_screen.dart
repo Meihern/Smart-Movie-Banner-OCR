@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:smart_movie_banner/models/movie_model.dart';
 import 'package:smart_movie_banner/widgets/movie_information.dart';
 
-class InfosScreen extends StatelessWidget {
+class MovieInfoScreen extends StatelessWidget {
+  final MovieModel movieModel;
+
+  const MovieInfoScreen({Key key,@required this.movieModel}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -9,7 +13,7 @@ class InfosScreen extends StatelessWidget {
       body: SafeArea(
         child:ListView(
           children: <Widget>[
-            MovieInformation(),
+            MovieInformation(movieModel: movieModel,),
           ],
         ),
       ),

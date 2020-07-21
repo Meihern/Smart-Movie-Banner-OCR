@@ -18,7 +18,7 @@ class MainBloc extends Bloc<MainEvent, MainState> {
   MainBloc({@required this.movieProvider}) : assert(movieProvider != null);
 
   @override
-  MainState get initialState => MainAppDefaultLoadedState();
+  MainState get initialState => MainAppLoadingState();
 
   @override
   Stream<MainState> mapEventToState(MainEvent event) async* {

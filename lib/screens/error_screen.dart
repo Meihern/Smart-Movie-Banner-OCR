@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
-class EmptyScreen extends StatelessWidget {
+class ErrorScreen extends StatelessWidget {
+  final String error;
+
+  const ErrorScreen({Key key,@required this.error}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
