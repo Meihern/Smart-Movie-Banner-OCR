@@ -4,15 +4,42 @@ import 'package:smart_movie_banner/provider/movie_provider.dart';
 import 'package:smart_movie_banner/screens/error_screen.dart';
 import 'package:smart_movie_banner/screens/home.dart';
 import 'package:smart_movie_banner/screens/movie_infos_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_analytics/observer.dart';
 
 import 'bloc/main/main_bloc.dart';
 
-void main() => runApp(
-    BlocProvider<MainBloc>(
-        create: (context) => MainBloc(movieProvider: MovieProvider())..add(MainAppStartedEvent()),
-        child: MyApp()
-    )
-);
+class SimpleBlocDelegate extends BlocDelegate {
+  @override
+  void onEvent(Bloc bloc, Object event) {
+    print(event);
+    super.onEvent(bloc, event);
+  }
+
+  @override
+  void onTransition(Bloc bloc, Transition transition) {
+    print(transition);
+    super.onTransition(bloc, transition);
+  }
+
+  @override
+  void onError(Bloc bloc, Object error, StackTrace stackTrace) {
+    print(error);
+    super.onError(bloc, error, stackTrace);
+  }
+}
+
+Future<void> main() async {
+  BlocSupervisor.delegate = SimpleBlocDelegate();
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(
+      BlocProvider<MainBloc>(
+          create: (context) => MainBloc(movieProvider: MovieProvider())..add(MainAppStartedEvent()),
+          child: MyApp()
+      )
+  );
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.

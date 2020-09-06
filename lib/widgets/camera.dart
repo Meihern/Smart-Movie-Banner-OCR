@@ -1,6 +1,9 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smart_movie_banner/bloc/main/main_bloc.dart';
 
-class Camera extends StatelessWidget {
+class CameraWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -10,10 +13,26 @@ class Camera extends StatelessWidget {
       child: FlatButton(
         child: Ink(
           child: RaisedButton.icon(
-            onPressed: (){
-            },
+            onPressed: () => AwesomeDialog(
+                context: context,
+                customHeader: Text("Movie Banner"),
+                tittle: "Pick an Image",
+                dialogType: DialogType.INFO,
+                desc: "",
+                btnOkText: "Gallery",
+                btnCancelText: "Camera",
+                btnCancelColor: Colors.blue,
+                btnOkColor: Colors.blue,
+                btnOkOnPress: (){
+                 // Navigator.of(context).pop();
+                  BlocProvider.of<MainBloc>(context).add(MainAppSendImageEvent(imageSource: "Gallery"));
+                },
+                btnCancelOnPress: (){
+                  //Navigator.of(context).pop();
+                  BlocProvider.of<MainBloc>(context).add(MainAppSendImageEvent(imageSource: "Camera"));
+                }
+            ).show(),
             icon: Icon(
-
               Icons.camera_alt,
               color: Colors.black.withOpacity(.7),
             ),

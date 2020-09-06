@@ -27,24 +27,19 @@ class MainBloc extends Bloc<MainEvent, MainState> {
       yield MainAppDefaultLoadedState();
     }
     if (event is MainAppSendImageEvent){
-      mapImageEventToState(event);
+      yield MainAppLoadingState();
+      try {
+        File imageFile = await movieProvider.pickAndPrepareImage(event.imageSource);
+        VisionText visionText = await movieProvider.recognizeTextFromImage(imageFile);
+        String keyword = visionText.text;
+        int movieId = await movieProvider.getMovieId(keyword);
+        MovieModel movieModel = await movieProvider.getMovieDetails(movieId);
+        yield MainAppMovieDetailState(movie: movieModel);
+      }catch (error){
+        yield MainAppErrorState(error: error.toString());
+      }
     }
 
-  }
-
-
-  Stream<MainState> mapImageEventToState(MainAppSendImageEvent appSendImageEvent) async* {
-    yield MainAppLoadingState();
-    try {
-      File imageFile = await movieProvider.pickAndPrepareImage(appSendImageEvent.imageSource);
-      VisionText visionText = await movieProvider.recognizeTextFromImage(imageFile);
-      String keyword = visionText.text;
-      int movieId = await movieProvider.getMovieId(keyword);
-      MovieModel movieModel = await movieProvider.getMovieDetails(movieId);
-      yield MainAppMovieDetailState(movie: movieModel);
-    }catch (error){
-      yield MainAppErrorState(error: error);
-    }
   }
 
 }

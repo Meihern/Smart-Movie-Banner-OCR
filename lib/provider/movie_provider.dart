@@ -27,29 +27,28 @@ class MovieProvider{
   }
 
   // ignore: missing_return
-  Future<int> getMovieId(String keyword) async{
+  Future<dynamic> getMovieId(String keyword) async{
     String searchUrl = BASE_URL+'/search/movie?api_key='+API_KEY+'&&language='+LANGUAGE+'&query='+keyword+'&page=1';
-    http.get(
-        Uri.encodeFull(searchUrl), headers: {'accept': 'application/json'}
-    ).then((result){
-      return json.decode(result.body)['results'][0]['id'];
-    }).catchError((err){
-      throw err;
-    });
+    final results = await http.Client().get(Uri.encodeFull(searchUrl), headers: {'accept': 'application/json'});
+    if (results.statusCode != 200)
+      throw Exception();
+    else{
+      return json.decode(results.body)['results'][0]['id'];
+    }
+
+
   }
 
   // ignore: missing_return
-  Future<MovieModel> getMovieDetails(int movieId) async{
+  Future<MovieModel> getMovieDetails(dynamic movieId) async{
     String movieDetailsUrl = '$BASE_URL/movie/$movieId?api_key=$API_KEY&&language=$LANGUAGE';
-    http.get(Uri.encodeFull(movieDetailsUrl), headers: {'accept': 'application/json'})
-    .then((result){
-      return MovieModel.fromJson(json.decode(result.body));
-    }).catchError((err){
-      throw err;
-    });
+    final results = await http.get(Uri.encodeFull(movieDetailsUrl), headers: {'accept': 'application/json'});
+    if (results.statusCode != 200)
+      throw Exception();
+    else{
+      return MovieModel.fromJson(json.decode(results.body));
+    }
+
   }
-
-
-
 
 }

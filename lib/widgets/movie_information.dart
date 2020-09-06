@@ -23,7 +23,7 @@ class MovieInformation extends StatelessWidget {
                           //bottom: 2,
                           right: 10,
                           left: 10,
-                          child:  Image.asset("assets/images/Joker.jpg",fit: BoxFit.fill,),
+                          child:  Image.network("https://image.tmdb.org/t/p/w500/${movieModel.posterImagePath}",fit: BoxFit.fill,),
 
              ),
                       ]

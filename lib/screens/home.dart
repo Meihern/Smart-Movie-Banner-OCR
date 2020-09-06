@@ -11,7 +11,7 @@ class Home extends StatelessWidget {
           scrollDirection: Axis.vertical,
           children: <Widget>[
             Container(
-              child:Camera(),
+              child:CameraWidget(),
             ),
           ],
         ),
